@@ -235,3 +235,12 @@ ul.footer-nav li a:hover {
 #footer a:hover {
 	text-decoration:none;
 	}
+
+.searchbox {
+	border: 1px solid gray;
+	background: lightgray;
+	padding: 0.5em;
+}
+.button_bar {
+	text-align: right;
+}
