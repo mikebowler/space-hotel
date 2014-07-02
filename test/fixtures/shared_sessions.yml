@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+default:
+  id: 1
+  title: Default
+
+default:
+  id: 123
+  title: Class of 2400

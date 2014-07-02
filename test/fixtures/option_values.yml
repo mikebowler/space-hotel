@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+id_on_messages:
+  id: 1
+  value:
+  shared_session_id: 1
+  option_id: 1
+ 

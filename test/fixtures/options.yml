@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+id_on_messages:
+  id: 1
+  description: Put an ID attribute on the messages list
+  key: id_on_messages
+  value_type: 'boolean'
+  possible_values: 'Y|N'
+  default_value: 'Y'
