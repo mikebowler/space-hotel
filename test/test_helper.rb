@@ -12,4 +12,12 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def assert_messages *messages
+    assert_equal messages, flash[:messages]
+  end
+
+  def assert_no_messages
+    assert_messages([])
+  end
+
 end

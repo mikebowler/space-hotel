@@ -1,5 +1,9 @@
 SpaceHotel::Application.routes.draw do
   get "index/index"
+
+  get '/patients/:id', to: 'patients#show'
+  get "/:id", :session_id => /^\d+\-\w+$/, :controller => 'index', :action => 'change_session' 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

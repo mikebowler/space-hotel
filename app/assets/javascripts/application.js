@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function showSignin() {
+	$("#sign_in_bar").slideDown()
+	return false;
+}
+
+function hideSignIn() {
+	$("#sign_in_bar").slideUp()
+	return false;
+}

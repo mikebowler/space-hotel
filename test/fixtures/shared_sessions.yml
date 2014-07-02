@@ -2,7 +2,9 @@
 default:
   id: 1
   title: Default
+  alpha_code: default
 
-default:
+123:
   id: 123
   title: Class of 2400
+  alpha_code: abc

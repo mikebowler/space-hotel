@@ -101,6 +101,15 @@ a:hover {
 	text-decoration:underline;
 	}	
 		
+#sign_in_bar {
+	color: white;
+	text-align: right;
+	border-top: 5px solid white;
+	padding: 0.5em;
+	padding-top: 0em;
+	display: none;
+}
+
 #site-content {
 	width:929px;
 	float:left;
