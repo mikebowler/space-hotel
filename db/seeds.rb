@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+SharedSession.create! :id => 1, :title => 'Default', :alpha_code => 'default'
+Option.create! description: "Put an ID attribute on the messages list",
+  key: "id_on_messages", value_type: 'boolean', possible_values: 'Y|N',  default_value: 'Y'

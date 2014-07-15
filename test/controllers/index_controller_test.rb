@@ -14,14 +14,14 @@ class IndexControllerTest < ActionController::TestCase
   end
 
   test "should revert to default session when given an invalid code" do 
-    get :change_session, :id => '0-invalid-session-code'
+    get :change_session, :id => '0-invalid'
     assert_redirected_to '/'
     assert_equal ApplicationController::DEFAULT_SESSION, session[:shared_session]
     assert_messages "Session not found"
   end
 
   test "should revert to default session when given an invalid alpha" do 
-    get :change_session, :id => '1-invalid-session-code'
+    get :change_session, :id => '1-invalid'
     assert_redirected_to '/'
     assert_equal ApplicationController::DEFAULT_SESSION, session[:shared_session]
     assert_messages "Session not found"

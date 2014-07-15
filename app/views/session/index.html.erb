@@ -1,0 +1,11 @@
+<table>
+	<tr>
+		<th>Key</th>
+		<th>Title</th>
+	</tr>
+	<% @shared_sessions.each do |shared_session| %>
+		<% key = "#{shared_session.id}-#{shared_session.alpha_code}" %>
+		<td><%= link_to key, :controller => 'index', :action => 'change_session', :id => key %></td>
+		<td><%= shared_session.title %></td>
+	<% end %>
+</table>

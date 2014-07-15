@@ -3,7 +3,7 @@ class IndexController < ApplicationController
   def index
   end
 
-  def change_session 
+  def change_session
     if params[:id] =~ /^(\d+)-(.+)$/
       id, alpha = $1.to_i, $2
       @shared_session = SharedSession.find_by_id id

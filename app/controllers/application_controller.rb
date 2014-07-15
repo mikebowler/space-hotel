@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   def initialize_shared_session
     id = session[:shared_session] || DEFAULT_SESSION
     @shared_session = SharedSession.find id.to_i
-
   end
 
   def add_message message

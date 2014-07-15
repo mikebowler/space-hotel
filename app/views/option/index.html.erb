@@ -1,0 +1,19 @@
+<h1>
+	Options for 
+	<%= @shared_session.id %>-<%= @shared_session.alpha_code %> 
+	<%= @shared_session.title.inspect %>
+</h1>
+<dl>
+<% 
+	@data.each do |option, value|
+		%><dt><%= option.description %></dt>
+		<dd><%
+		if option.value_type == 'boolean'
+			%><%= check_box_tag option.key %>Enable me<%
+		else
+			%><%= option.inspect %><%
+		end
+		%></dd><%
+	end
+%>
+</dl>
