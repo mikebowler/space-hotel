@@ -1,4 +1,6 @@
 class OptionController < ApplicationController
+  before_filter :admin_only
+
   def index
     all_options = Option.all
     values = OptionValue.find_by_shared_session_id @shared_session.id

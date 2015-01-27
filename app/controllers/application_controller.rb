@@ -12,7 +12,16 @@ class ApplicationController < ActionController::Base
     @shared_session = SharedSession.find id.to_i
   end
 
+  # Filter to allow access only to admins
+  def admin_only
+    unless session[:userid] == 'admin'
+      add_message 'Insufficient permission to view page'
+      redirect_to '/'
+    end
+  end
+
   def add_message message
     (flash[:messages] ||= []) << message
   end
+
 end

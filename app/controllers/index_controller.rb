@@ -11,6 +11,7 @@ class IndexController < ApplicationController
         add_message "Welcome to #{@shared_session.title}"
         session[:shared_session] = id
         initialize_shared_session
+        session[:userid] = nil
         return redirect_to '/'
       end
     end
@@ -19,5 +20,30 @@ class IndexController < ApplicationController
     session[:shared_session] = DEFAULT_SESSION
     initialize_shared_session
     redirect_to '/'
+  end
+
+  def login
+    if params[:password] == 'topsecret'
+      session[:userid] = params[:userid]
+    end
+    add_message "Logged in with #{params.inspect}"
+    redirect_to :action => 'index'
+  end
+
+  def logoff
+    session[:userid] = nil
+    add_message 'Logged off'
+    redirect_to '/'
+  end
+
+  def my_reservations
+    if session[:userid] == 'amy'
+      @reservations = [
+        {:location => 'Mercury', :start => '2145-04-01', :nights => 5},
+        {:location => 'Venus', :start => '2140-02-29', :nights => 1, :instructions => 'upgrade requested'}
+      ]
+    else
+      @reservations = []
+    end
   end
 end

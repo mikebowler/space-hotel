@@ -3,7 +3,8 @@
 	<p class="text-1"><strong>Space Hotel</strong> is a sample application
 	used in training classes and should not be mistaken for a real
 	hotel in space, however cool that would be.</p>
-	<form class="searchbox">
+	<form class="searchbox" 
+		action="<%= url_for :controller => 'reservation', :action => 'search' %>">
 		<label>
 			Destination
 			<select>

@@ -1,10 +1,19 @@
 SpaceHotel::Application.routes.draw do
+  get 'reservation/search'
+
+  get 'reservation/new'
+
+  get 'reservation/create'
+
   get "session/index"
   get "index/index"
 
   get "/:id", :id => /\d+\-\w+/, :controller => 'index', :action => 'change_session' 
   get "/sessions", :controller => 'session', :action => 'index'
   get "/options", :controller => 'option', :action => 'index'
+  post "/login", :controller => 'index', :action => 'login'
+  get '/logoff', :controller => 'index', :action => 'logoff'
+  get "/my_reservations", :controller => 'index', :action => 'my_reservations'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

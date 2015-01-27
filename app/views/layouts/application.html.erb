@@ -11,27 +11,33 @@
 	</head>
 	<body>
 		<div id="container">
-			<div id="header"> <img src="images/logo.jpg" alt="" id="logo">
+			<div id="header"> <%= image_tag 'logo.jpg', :alt => "", :id => "logo"%>
 				<h1 id="logo-text">Space Hotel</h1>
 			</div>
 			<div id="nav">
 				<ul>
 				  <li><a href="#">Home</a></li>
-				  <li><a href="#">About&nbsp;us</a></li>
-				  <li><a href="#">Recent&nbsp;articles</a></li>
-				  <li><a href="#">Email</a></li>
+				  <% unless session[:userid].nil? %>
+					  <li><%= link_to 'My reservations', {:controller => 'index', :action => 'my_reservations'}, :id => 'my_reservations' %></li>
+					  <li><a href="#">Recent&nbsp;articles</a></li>
+					  <li><a href="#">Email</a></li>
+				  <% end %>
 				  <li style="border-right: medium none;" >
-				  	<a href="#" onclick="return showSignin()" id="show_sign_in_link">Sign&nbsp;in</a>
+				  	<% if session[:userid].nil? %>
+				  		<a href="#" onclick="return showSignin()" id="show_sign_in_link">Sign&nbsp;in</a>
+				  	<% else %>
+				  		Logged in as <%= session[:userid] %>
+				  	<% end %>
 				  </li>
 				</ul>
 			</div>
 
 			<div id="sign_in_bar">
-				<form>
-				User ID: <input type="text" name="user-id" />
-				Password: <input type="password" name="password" />
-				<button type="submit">Sign in</button>
-				<a href="#" onclick="return hideSignIn()">x</a>
+				<%= form_tag :controller => 'index', :action => 'login' %>
+					User ID: <input type="text" name="userid" id="userid" />
+					Password: <input type="password" name="password" id="password" />
+					<button type="submit">Sign in</button>
+					<a href="#" onclick="return hideSignIn()">x</a>
 				</form>
 			</div>
 
@@ -48,12 +54,11 @@
 			</div>
 
 			<div id="footer">
-				<!--DO NOT Remove The Footer Links-->
-				<!--Designed by--><a href="http://www.htmltemplates.net">
 				<img src="images/footnote.gif" class="copyright" alt="html templates"></a>
 				<p>
-					&copy; 2014 Gargoyle Software Inc. <br />Design provided by 
+					&copy; 2014-<%= Date.today.year %> Gargoyle Software Inc. <br />Design provided by 
 					<a target="_blank" href="http://www.htmltemplates.net">htmltemplates.net</a>
+
 				</p>
 				<ul class="footer-nav">
 				  <li><a href="#">Home</a></li>
@@ -62,6 +67,7 @@
 				  <li><a href="#">Email</a></li>
 				  <li><a href="#">Resources</a></li>
 				  <li><a href="#">Links</a></li>
+				  <li><%= @shared_session %></li>
 				</ul>
 			</div>
 		</div>
