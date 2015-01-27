@@ -27,7 +27,7 @@ class IndexController < ApplicationController
       session[:userid] = params[:userid]
     end
     add_message "Logged in with #{params.inspect}"
-    redirect_to :action => 'index'
+    redirect_to '/'
   end
 
   def logoff
