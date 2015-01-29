@@ -26,7 +26,7 @@ class IndexController < ApplicationController
     if params[:password] == 'topsecret'
       session[:userid] = params[:userid]
     end
-    add_message "Logged in with #{params.inspect}"
+    add_message "Welcome back #{params[:userid]}"
     redirect_to '/'
   end
 
@@ -45,5 +45,10 @@ class IndexController < ApplicationController
     else
       @reservations = []
     end
+  end
+
+  def search
+    @planet = params[:planet]
+    render :layout => false
   end
 end

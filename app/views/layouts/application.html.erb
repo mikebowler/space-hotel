@@ -19,14 +19,18 @@
 				  <li><a href="#">Home</a></li>
 				  <% unless session[:userid].nil? %>
 					  <li><%= link_to 'My reservations', {:controller => 'index', :action => 'my_reservations'}, :id => 'my_reservations' %></li>
-					  <li><a href="#">Recent&nbsp;articles</a></li>
+					  <% if controller.admin_user? %>
+						  <li><%= link_to 'Manage sessions', 
+						  	:controller => 'session', :action => 'index' %></li>
+					  <% end %>
 					  <li><a href="#">Email</a></li>
 				  <% end %>
 				  <li style="border-right: medium none;" >
 				  	<% if session[:userid].nil? %>
 				  		<a href="#" onclick="return showSignin()" id="show_sign_in_link">Sign&nbsp;in</a>
 				  	<% else %>
-				  		Logged in as <%= session[:userid] %>
+				  		<%= link_to "Not #{session[:userid]}?", 
+				  			:controller => 'index', :action => 'logoff' %>
 				  	<% end %>
 				  </li>
 				</ul>
@@ -44,7 +48,7 @@
 
 			<div id="site-content">
 				<% unless flash[:messages].nil? %>
-					<ul>
+					<ul style="color: red; padding-left: 1em; margin-left: 1em;">
 						<% flash[:messages].each do |m| %>
 							<li><%= m %></li>
 						<% end %>

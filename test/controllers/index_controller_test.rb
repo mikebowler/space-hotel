@@ -26,4 +26,5 @@ class IndexControllerTest < ActionController::TestCase
     assert_equal ApplicationController::DEFAULT_SESSION, session[:shared_session]
     assert_messages "Session not found"
   end
+
 end

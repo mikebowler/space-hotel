@@ -1,10 +1,4 @@
 SpaceHotel::Application.routes.draw do
-  get 'reservation/search'
-
-  get 'reservation/new'
-
-  get 'reservation/create'
-
   get "session/index"
   get "index/index"
 
@@ -13,6 +7,7 @@ SpaceHotel::Application.routes.draw do
   post "/login", :controller => 'index', :action => 'login'
   get '/logoff', :controller => 'index', :action => 'logoff'
   get "/my_reservations", :controller => 'index', :action => 'my_reservations'
+  post '/search', :controller => 'index', :action => 'search'
 
   get "/sessions", :controller => 'session', :action => 'index'
   get '/sessions/new', :controller => 'session', :action => 'new'  
