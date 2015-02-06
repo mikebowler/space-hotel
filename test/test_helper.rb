@@ -20,4 +20,17 @@ class ActiveSupport::TestCase
     assert_messages([])
   end
 
+  def set_option_value session_id, key, value
+    option = Option.find_by :key => key.to_s
+    option_value = OptionValue.find_by(
+      :shared_session_id => session_id, :option_id => option.id
+    )
+    if value.nil?
+      option_value.delete
+    else
+      option_value.value = value
+      option_value.save!
+    end
+  end
+
 end

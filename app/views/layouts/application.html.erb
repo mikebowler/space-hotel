@@ -48,7 +48,11 @@
 
 			<div id="site-content">
 				<% unless flash[:messages].nil? %>
-					<ul style="color: red; padding-left: 1em; margin-left: 1em;">
+					<ul style="color: red; padding-left: 1em; margin-left: 1em;"
+					<% if controller.option_enabled? :id_on_messages %>
+						id="message_list"
+					<% end %>
+					>
 						<% flash[:messages].each do |m| %>
 							<li><%= m %></li>
 						<% end %>

@@ -49,6 +49,7 @@ class IndexController < ApplicationController
 
   def search
     @planet = params[:planet]
+
     render :layout => false
   end
 end

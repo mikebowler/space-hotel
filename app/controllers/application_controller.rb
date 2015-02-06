@@ -32,4 +32,15 @@ class ApplicationController < ActionController::Base
     (flash[:messages] ||= []) << message
   end
 
+  def option_enabled? feature
+    option = Option.find_by :key => feature.to_s
+    value = OptionValue.find_by(
+      :shared_session_id => @shared_session.id, :option_id => option.id
+    )
+    if value.nil?
+      false
+    else
+      value.value == 'Y'
+    end
+  end
 end
