@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   DEFAULT_SESSION = 1
 
-  before_filter :initialize_shared_session
+  before_action :initialize_shared_session
 
   def initialize_shared_session
     id = session[:shared_session] || DEFAULT_SESSION
