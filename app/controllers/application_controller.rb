@@ -22,10 +22,10 @@ class ApplicationController < ActionController::Base
 
   # Filter to allow access only to admins
   def admin_only
-    unless admin_user?
-      add_message 'Insufficient permission to view page'
-      redirect_to '/'
-    end
+    return if admin_user?
+
+    add_message 'Insufficient permission to view page'
+    redirect_to '/'
   end
 
   def add_message message
@@ -33,9 +33,9 @@ class ApplicationController < ActionController::Base
   end
 
   def option_enabled? feature
-    option = Option.find_by :key => feature.to_s
+    option = Option.find_by key: feature.to_s
     value = OptionValue.find_by(
-      :shared_session_id => @shared_session.id, :option_id => option.id
+      shared_session_id: @shared_session.id, option_id: option.id
     )
     if value.nil?
       false

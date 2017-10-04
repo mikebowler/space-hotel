@@ -39,8 +39,8 @@ class IndexController < ApplicationController
   def my_reservations
     if session[:userid] == 'amy'
       @reservations = [
-        {:location => 'Mercury', :start => '2145-04-01', :nights => 5},
-        {:location => 'Venus', :start => '2140-02-29', :nights => 1, :instructions => 'upgrade requested'}
+        { location: 'Mercury', start: '2145-04-01', nights: 5 },
+        { location: 'Venus', start: '2140-02-29', nights: 1, instructions: 'upgrade requested' }
       ]
     else
       @reservations = []
@@ -50,6 +50,6 @@ class IndexController < ApplicationController
   def search
     @planet = params[:planet]
 
-    render :layout => false
+    render layout: false
   end
 end
