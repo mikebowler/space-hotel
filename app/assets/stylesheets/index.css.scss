@@ -9,7 +9,7 @@ body {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:12px;
 	color:#464a4f;
-	background:url(../images/body-bg.jpg) repeat;
+	background:asset-url('body-bg.jpg') repeat;
 	}
 
 p, h1, h2, h3, h4, h5, h6, ul, li {
@@ -45,7 +45,7 @@ a:hover {
 #header {
 	width:929px;
 	float:left;
-	background:url(../images/heaser-bg.jpg) no-repeat;
+	background:asset-url("heaser-bg.jpg") no-repeat;
 	height:221px;
 	}	
 	
@@ -67,7 +67,7 @@ a:hover {
 #nav {
 	width:929px;
 	float:left;
-	background:url(../images/nav-bg.jpg) repeat-x;
+	background:asset-url("nav-bg.jpg") repeat-x;
 	height:38px;
 	}		
 	
@@ -116,7 +116,7 @@ a:hover {
 #site-content {
 	width:929px;
 	float:left;
-	background:url(../images/site-bg.jpg) repeat-y;
+	background:asset-url("site-bg.jpg") repeat-y;
 	}
 	
 #col-right {
@@ -164,7 +164,7 @@ a:hover {
 	color:#0000ff;
 	font-weight:bold;
 	padding:0px 0px 10px 15px;
-	background:url(../images/arr-2.jpg) no-repeat 0px 3px;
+	background:asset-url("arr-2.jpg") no-repeat 0px 3px;
 	margin:10px 0px 0px 0px;
 	}
 
@@ -192,11 +192,11 @@ ul.list-1 {
 ul.list-1 li {
 	margin:0px 0px 10px 0px;
 	padding:0px 0px 0px 15px;
-	background:url(../images/arr-1.jpg) no-repeat 2px 5px;
+	background:asset-url("arr-1.jpg") no-repeat 2px 5px;
 	}
 
 .border-1 {
-	background:url(../images/border-bg.jpg) bottom repeat-x;
+	background:asset-url("border-bg.jpg") bottom repeat-x;
 	}
 	
 ul.footer-nav {
