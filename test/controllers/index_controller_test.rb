@@ -31,22 +31,8 @@ class IndexControllerTest < ActionController::TestCase
     set_option_value ApplicationController::DEFAULT_SESSION, :id_on_messages, 'Y'
     get :index, flash: { messages: ['Testing123'] }
 
-    assert_match /id="message_list"/, @response.body
-    assert_match /<li>Testing123<\/li>/, @response.body
+    assert_match(/id="message_list"/, @response.body)
+    assert_match(/<li>Testing123<\/li>/, @response.body)
   end
 
-  test "option id_on_messages when there's no value" do
-    set_option_value ApplicationController::DEFAULT_SESSION, :id_on_messages, nil
-    get :index, flash: { messages: ['Testing123'] }
-
-    assert_no_match /id="message_list"/, @response.body
-    assert_match /<li>Testing123<\/li>/, @response.body
-  end
-
-  test "option id_on_messages when it's disabled" do
-    get :index, flash: { messages: ['Testing123'] }
-
-    assert_no_match /id="message_list"/, @response.body
-    assert_match /<li>Testing123<\/li>/, @response.body
-  end
 end

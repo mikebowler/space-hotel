@@ -34,13 +34,15 @@ class ApplicationController < ActionController::Base
 
   def option_enabled? feature
     option = Option.find_by key: feature.to_s
+    raise "Option isn't boolean: #{feature}" unless option.value_type == 'boolean'
+
     value = OptionValue.find_by(
       shared_session_id: @shared_session.id, option_id: option.id
     )
     if value.nil?
-      false
+      false # Deny by default
     else
-      value.value == 'Y'
+      value.object
     end
   end
 end
