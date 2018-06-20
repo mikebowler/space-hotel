@@ -1,4 +1,4 @@
-class CreateOptionValues < ActiveRecord::Migration
+class CreateOptionValues < ActiveRecord::Migration[4.2]
   def change
     create_table :option_values do |t|
       t.text :value
