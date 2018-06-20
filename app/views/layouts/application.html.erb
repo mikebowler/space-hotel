@@ -16,7 +16,7 @@
 			</div>
 			<div id="nav">
 				<ul>
-				  <li><a href="#">Home</a></li>
+				  <li><%= link_to 'Home', {:controller => 'index', :action => 'index'}, :id => 'home_link' %></li>
 				  <% unless session[:userid].nil? %>
 					  <li><%= link_to 'My reservations', {:controller => 'index', :action => 'my_reservations'}, :id => 'my_reservations' %></li>
 					  <% if controller.admin_user? %>
@@ -27,7 +27,9 @@
 				  <% end %>
 				  <li style="border-right: medium none;" >
 				  	<% if session[:userid].nil? %>
-				  		<a href="#" onclick="return showSignin()" id="show_sign_in_link">Sign&nbsp;in</a>
+				  		<%= link_to "Sign in", 
+				  			{ :controller => 'index', :action => 'login' },
+				  			{ :id => 'login_button' } %>
 				  	<% else %>
 				  		<%= link_to "Not #{session[:userid]}?", 
 				  			:controller => 'index', :action => 'logoff' %>
@@ -37,12 +39,6 @@
 			</div>
 
 			<div id="sign_in_bar">
-				<%= form_tag :controller => 'index', :action => 'login' %>
-					User ID: <input type="text" name="userid" id="userid" />
-					Password: <input type="password" name="password" id="password" />
-					<button type="submit">Sign in</button>
-					<a href="#" onclick="return hideSignIn()">x</a>
-				</form>
 			</div>
 
 

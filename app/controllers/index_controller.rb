@@ -23,11 +23,15 @@ class IndexController < ApplicationController
   end
 
   def login
-    if params[:password] == 'topsecret'
-      session[:userid] = params[:userid]
+    if request.post?
+      if params[:password] == 'topsecret'
+        session[:userid] = params[:userid]
+        add_message "Welcome back #{params[:userid]}"
+        redirect_to '/'
+      else
+        add_message "Password not matched"
+      end
     end
-    add_message "Welcome back #{params[:userid]}"
-    redirect_to '/'
   end
 
   def logoff
