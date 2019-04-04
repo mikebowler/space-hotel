@@ -47,3 +47,6 @@ end
 
 # Needed for heroku in order to serve up static assets like css
 gem 'rails_12factor', group: :production
+
+gem 'rubocop'
+gem 'rubocop-performance'
