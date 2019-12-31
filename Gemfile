@@ -1,8 +1,13 @@
 source 'https://rubygems.org'
 #
 
-ruby '2.6.1'
+ruby '2.6.5'
 gem 'rails'
+
+# Sprockets 4.0 changes some behaviour that I don't have time to figure out
+# now. Remove the gem statement entirely when ready to move to 4 as it's 
+# an implicit dependency.
+gem 'sprockets', '<4'
 
 # Use Postgres as the database for Active Record
 gem 'pg'
