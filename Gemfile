@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #
 
-ruby '2.6.5'
+ruby '2.7.0'
 gem 'rails'
 
 # Sprockets 4.0 changes some behaviour that I don't have time to figure out
